@@ -12,11 +12,16 @@ git remote add origin git@github.com:koutakimura0510/9cc.git
 git push -u origin master 
 
 //sshキー作成
+//もし複数PCで一つのリポジトリを管理する場合は、個別にsshキーを作成する必要あり
 cd ~/.ssh/
 ssh-keygen	//ここでさいしょのEnterはそのままEnter、次はパスワードを二回入力
 ls
+
+//chmodコマンドは今は必要ない
 chmod 700 ~/.ssh/
 ls -l
+
+//id_rsa.pubの中身をコピー
 clip < ~/.ssh/id_rsa.pub 
 sudo apt install geomview 
 clip < ~/.ssh/id_rsa.pub 
@@ -31,6 +36,7 @@ gitコマンド
 //ユーザ名はgithubに登録されている名前、フォルダ名はリポジトリ名
 git clone https://@github.com/ユーザ名/フォルダ名.git
 	//パス koutakimura
+git clone git@github.com:koutakimura0510/フォルダ名/~.git
 	
 //master変更
 git remote set-url git@github.com:ユーザー名/ファルダ名.git
