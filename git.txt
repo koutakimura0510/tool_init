@@ -1,83 +1,75 @@
-//ディレクトリにgit作成
-vim .gitignore	//gitが無視するファイル生成
-	//中身を書く
-git config --global user.name "Kouta Kimura"
-git config --global user.email "afunfun5100@gmail.com"
-git init 
-ls
-git add 9cc.c test.sh Makefile .gitignore
-git commit -m "整数1つをコンパイルするコンパイラを作成"
-git log -p
-git remote add origin git@github.com:koutakimura0510/9cc.git
-git push -u origin master 
-
-//sshキー作成
-//もし複数PCで一つのリポジトリを管理する場合は、個別にsshキーを作成する必要あり
-cd ~/.ssh/
-ssh-keygen	//ここでさいしょのEnterはそのままEnter、次はパスワードを二回入力
-ls
-
-//chmodコマンドは今は必要ない
-chmod 700 ~/.ssh/
-ls -l
-
-//id_rsa.pubの中身をコピー
-clip < ~/.ssh/id_rsa.pub 
-sudo apt install geomview 
-clip < ~/.ssh/id_rsa.pub 
-
-//githubに登録後下記コマンド実行、Hi なんちゃらが出力される
-ssh -T git@github.com
+/**------------------------------------------------
+ - Ubuntu LTS 20.04 Kouta Kimura
+ --------------------------------------------------
+ - git github 設定の仕方
+ - ssh接続でリモートリポジトリのアクセスを可能にし
+ - 複数のPCでデータのやり取りをできるようにする
+ - GUI操作は面倒なのでCUI操作だけでファイル管理を行いたい
+ -------------------------------------------------*/
 
 
-//
-gitコマンド
-//guthubから取得
-//ユーザ名はgithubに登録されている名前、フォルダ名はリポジトリ名
-git clone https://@github.com/ユーザ名/フォルダ名.git
-	//パス koutakimura
-git clone git@github.com:koutakimura0510/フォルダ名/~.git
-	
-//master変更
-git remote set-url git@github.com:ユーザー名/ファルダ名.git
+/**------------------------------------------------
+ - ssh key create
+ --------------------------------------------------
+ - 複数PCで一つのリポジトリを管理する場合は
+ - 個別にsshキーを作成する必要あり
+ -------------------------------------------------*/
+1. cd ~/.ssh/	//move ssh directory
+2. ssh-keygen	//1.Enter 2.Favorite pass 3.Same pass as the second
+3. ls			//check id_rsa id_rsa.pub
+4. id_rsa.pub copy to file
+5. github id_rsa.pub_sshkey paste
+6. ssh -T git@github.com	//ssh OK cheak
 
-//リポジトリ追加---add commitはセットで行う
-git add *.c
-git commit -m "sample"
-git push -u origin master
 
-//フォルダの場合
-git add src/
-git commit -m "srcfile"
-git push -u origin master
-git show
+/**------------------------------------------------
+ - git config set
+ -------------------------------------------------*/
+git config --global user.name "Hoge Hoge"
+git config --global user.email "hogehogeeeee@hoge.com"
+git config --global core.autocrlf false		//not auto \r\n No line breaks
+git config --global color.ui true			//color
+git config --global core.editor vim			//default editor vim
+git config --global core.quotepath false	//not encode JPN namefile
+git config --global credential.helper 'cache --timeout=86400'	//passwd Save for one day
+git config --list	//Check settings
+cat ~/.gitconfig	//Check settings
 
-//特定のファイルだけコミットする場合
-git commit -m "hoge" -- hoge.c piyo.c
--a 拡張子で既存ファイル全てをコミット
 
-//コミット確認
-git status
+/**------------------------------------------------
+ - git remote push
+ -------------------------------------------------*/
+1. git init			//Only once Current directory git create
+2. vim .gitignore	//Files or Directory to ignore
+3. git add .		//All mod file
+4. git commit		//Fixes comment
+5. git log -p		//Log if you want to check
+6. git remote add origin git@github.com:github_user_name/repository_name.git
+7. git push -u origin master
 
-//githubのファイルの変更内容を取得
+
+/**------------------------------------------------
+ - git get remote projects 
+ -------------------------------------------------*/
+git clone https://@github.com/github_user_name/repository_name.git
+git clone git@github.com:github_user_name/repository.git
 git pull origin master
 
-改行コードの自動変換をしない
-git config --global core.autocrlf false
 
-いい感じの文字色
-git config --global color.ui true
+/**------------------------------------------------
+ - Change remote URL
+ -------------------------------------------------*/
+git remote set-url git@github.com:github_user_name/repository_name.git
 
-デフォルトエディター
-git config --global core.editor vim
 
-日本語ファイル名をエンコードしない
-git config --global core.quotepath false
+/**------------------------------------------------
+ - git command
+ -------------------------------------------------*/
+git show	//Push check
+git status	//Commit check
 
-認証情報をキャッシュする、毎回パスワードを入力するのが面倒なので
-24時間保存
-git config --global credential.helper 'cache --timeout=86400'
 
-設定の確認
-git config --list  又は
-cat ~/.gitconfig
+/**------------------------------------------------
+ - Commit command
+ -------------------------------------------------*/
+git commit -m "hoge" -- hoge.c piyo.c
