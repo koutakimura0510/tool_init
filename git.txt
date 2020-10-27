@@ -1,0 +1,77 @@
+//ディレクトリにgit作成
+vim .gitignore	//gitが無視するファイル生成
+	//中身を書く
+git config --global user.name "Kouta Kimura"
+git config --global user.email "afunfun5100@gmail.com"
+git init 
+ls
+git add 9cc.c test.sh Makefile .gitignore
+git commit -m "整数1つをコンパイルするコンパイラを作成"
+git log -p
+git remote add origin git@github.com:koutakimura0510/9cc.git
+git push -u origin master 
+
+//sshキー作成
+cd ~/.ssh/
+ssh-keygen	//ここでさいしょのEnterはそのままEnter、次はパスワードを二回入力
+ls
+chmod 700 ~/.ssh/
+ls -l
+clip < ~/.ssh/id_rsa.pub 
+sudo apt install geomview 
+clip < ~/.ssh/id_rsa.pub 
+
+//githubに登録後下記コマンド実行、Hi なんちゃらが出力される
+ssh -T git@github.com
+
+
+//
+gitコマンド
+//guthubから取得
+//ユーザ名はgithubに登録されている名前、フォルダ名はリポジトリ名
+git clone https://@github.com/ユーザ名/フォルダ名.git
+	//パス koutakimura
+	
+//master変更
+git remote set-url git@github.com:ユーザー名/ファルダ名.git
+
+//リポジトリ追加---add commitはセットで行う
+git add *.c
+git commit -m "sample"
+git push -u origin master
+
+//フォルダの場合
+git add src/
+git commit -m "srcfile"
+git push -u origin master
+git show
+
+//特定のファイルだけコミットする場合
+git commit -m "hoge" -- hoge.c piyo.c
+-a 拡張子で既存ファイル全てをコミット
+
+//コミット確認
+git status
+
+//githubのファイルの変更内容を取得
+git pull origin master
+
+改行コードの自動変換をしない
+git config --global core.autocrlf false
+
+いい感じの文字色
+git config --global color.ui true
+
+デフォルトエディター
+git config --global core.editor vim
+
+日本語ファイル名をエンコードしない
+git config --global core.quotepath false
+
+認証情報をキャッシュする、毎回パスワードを入力するのが面倒なので
+24時間保存
+git config --global credential.helper 'cache --timeout=86400'
+
+設定の確認
+git config --list  又は
+cat ~/.gitconfig
