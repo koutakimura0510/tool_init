@@ -40,12 +40,11 @@ cat ~/.gitconfig	//Check settings
  - git remote push
  -------------------------------------------------*/
 1. git init			//Only once Current directory git create
-2. vim .gitignore	//Files or Directory to ignore
-3. git add .		//All mod file
-4. git commit		//Fixes comment
-5. git log -p		//Log if you want to check
-6. git remote add origin git@github.com:github_user_name/repository_name.git
-7. git push -u origin master
+2. git add .		//All mod file
+3. git commit		//Fixes comment
+4. git log -p		//Log if you want to check
+5. git remote add origin git@github.com:github_user_name/repository_name.git
+6. git push -u origin master
 
 
 /**------------------------------------------------
@@ -73,3 +72,18 @@ git status	//Commit check
  - Commit command
  -------------------------------------------------*/
 git commit -m "hoge" -- hoge.c piyo.c
+
+
+/**------------------------------------------------
+ - rename & changedirectory
+ -------------------------------------------------*/
+ git mv [old file name/directory name] [new file name/directory name]
+ git mv [old file/directory pass] [new file/directory pass]
+
+
+ /**------------------------------------------------
+  - remove file directory
+  -------------------------------------------------*/
+git rm --cached filename
+git rm -r --cached directoryname
+vim .gitignore	//Files or Directory to ignore
