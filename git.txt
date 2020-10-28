@@ -59,7 +59,7 @@ git pull origin master
 /**------------------------------------------------
  - Change remote URL
  -------------------------------------------------*/
-git remote set-url git@github.com:github_user_name/repository_name.git
+git remote set-url origin git@github.com:github_user_name/repository_name.git
 
 
 /**------------------------------------------------
