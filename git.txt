@@ -84,6 +84,33 @@ git commit -m "hoge" -- hoge.c piyo.c
  /**------------------------------------------------
   - remove file directory
   -------------------------------------------------*/
-git rm --cached filename
-git rm -r --cached directoryname
+git rm --cached [filename]
+git rm -r --cached [directoryname]
 vim .gitignore	//Files or Directory to ignore
+
+
+/**------------------------------------------------
+ - branch
+ -------------------------------------------------*/
+1. git branch testbranch
+2. git branch
+3. git checkout testbranch
+4. git branch
+5. git add .
+6. git commit
+7. git push origin testbranch
+
+
+/**------------------------------------------------
+ - merge
+ -------------------------------------------------*/
+1. git checkout master
+2. git merge testbranch
+3. git push origin master
+
+
+/**------------------------------------------------
+ - repository folder get
+ - svn export
+ -------------------------------------------------*/
+svn export https://github.com/[github.user.name]/[repository.name]/trunk/[directory.name]...
