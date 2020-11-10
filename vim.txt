@@ -1,0 +1,26 @@
+/**-------------------------------------------------
+ - vim command setting
+ -------------------------------------------------*/
+
+ -Normal mode-
+ only	---now file only open
+ diw    ---word delete
+ di"	---" " word delete
+ yiw	---word copy
+ yi"	---" " word copy
+
+ u		---undo
+ Ctrl r	---redo
+ 
+ gg		---file line farst
+ G		---file line last
+ w,W	---word move
+ b,B	---back word
+
+ L		---page last move
+
+ Ctrl+u	---up
+ Ctrl+d	---down
+
+ -Insert mode-
+
